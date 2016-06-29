@@ -9,11 +9,17 @@ footer{
   bottom: 0;
   text-align: center;
 }
-.groups{
-  padding: 10px;
+.top{
+  margin: 1%;
+}
+.groupList{
+  margin-bottom: 10px;
+  text-align: center;
 }
 .group{
   display: inline-block;
+  margin: auto;
   width: auto;
-  margin: 2%;
+  padding: 10px;
+  vertical-align: top;
 }

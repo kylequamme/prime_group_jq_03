@@ -56,6 +56,7 @@ $('.btn-group').on('click', function(event){
 })
 
 $('#gen').on('click', function(){
+  $('.groupList').empty();
   assignTeamNum(randomizer(peopleArray), numTeams);
   console.log(peopleArray);
   appendToDOM(peopleArray, numTeams);
