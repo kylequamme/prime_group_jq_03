@@ -44,6 +44,7 @@ function assignTeamNum(array, numTeams){
     if(num == numTeams+1){
       num = 1;
     }
+
   }
 }
 
@@ -56,6 +57,17 @@ $('.btn-group').on('click', function(event){
 
 $('#gen').on('click', function(){
   assignTeamNum(randomizer(peopleArray), numTeams);
-  
+  console.log(peopleArray);
+  appendToDOM(peopleArray, numTeams);
+
 })
+
+function appendToDOM(array, num){
+  for (var i = 1; i <= num; i++) {
+    $('.groupList').append('<div class="group ' + i + '"> <h2>Team ' + i + '</h2></div>');
+  }
+  for (var i = 0; i < array.length; i++) {
+    $('.' + array[i].number).append('<li>' + array[i].name + '</li>');
+  }
+}
 });
