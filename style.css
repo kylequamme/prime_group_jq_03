@@ -9,3 +9,9 @@ footer{
   bottom: 0;
   text-align: center;
 }
+.groups{
+  padding: 10px;
+}
+.group{
+  display: inline-block;
+}
