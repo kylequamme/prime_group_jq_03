@@ -20,6 +20,12 @@ h2{
 #selectorButtons{
   width: 100%;
 }
+#genGroup{
+  display: none;
+}
+#genPeople{
+  display: none;
+}
 .btn-numbers{
   margin: 5px auto;
 }
