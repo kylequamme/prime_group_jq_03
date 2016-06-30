@@ -37,37 +37,38 @@ $(function(){
 
   $('#teamButton').on('click', function(){
     $('#peopleButtons').hide();
-    $('#genGroup').css("display", "none");
+    // $('#genGroup').css("display", "none");
     // $('#genGroup').addClass('disabled');
     $('#groupButtons').css("display", "inline-block");
 
   })
   $('#peopleButton').on('click', function(){
     $('#groupButtons').hide();
-    $('#genPeople').css("display", "none");
+    // $('#genPeople').css("display", "none");
     // $('#genPeople').addClass('disabled');
     $('#peopleButtons').css("display", "inline-block");
   })
 
   $('#groupButtons').on('click', function(event){
-    numTeams = parseInt(event.target.value);
     $('#genGroup').css("display", "inline-block");
   })
 
   $('#peopleButtons').on('click', function(event){
-    tempTeamSize = parseInt(event.target.value);
     $('#genPeople').css("display", "inline-block");
   })
 
   $('#genGroup').on('click', function(){
     $('.groupList').empty();
-    $('#genGroup').css("display", "none");
+    numTeams = $('#btn1').find('.active').val();
+    // console.log(numTeams);
     assignTeamNum(randomizer(peopleArray), numTeams);
     appendToDOM(peopleArray, numTeams);
   })
 
    $('#genPeople').on('click', function(){
      $('.groupList').empty();
+     tempTeamSize = $('#btn2').find('.active').val();
+    //  console.log(tempTeamSize);
      var tempTeamNum = parseInt(peopleArray.length/tempTeamSize);
      assignTeamNum(randomizer(peopleArray), tempTeamNum);
      appendToDOM(peopleArray, tempTeamNum);
