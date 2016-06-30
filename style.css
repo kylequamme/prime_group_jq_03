@@ -4,15 +4,30 @@ body{
   padding: 10px;
 }
 footer{
-  position: fixed;
+  margin-top: 25px;
   width: 100%;
-  bottom: 0;
   text-align: center;
+}
+h2{
+  font-size: 1.5em;
+}
+#groupButtons{
+  display: none;
+}
+#peopleButtons{
+  display: none;
+}
+#selectorButtons{
+  width: 100%;
+}
+.btn-numbers{
+  margin: 5px auto;
 }
 .top{
   margin: 1%;
 }
 .groupList{
+  display: none;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -22,4 +37,5 @@ footer{
   width: auto;
   padding: 10px;
   vertical-align: top;
+  text-align: left;
 }

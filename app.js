@@ -19,7 +19,47 @@ $(function(){
                     {name: 'Katie', number: 0},
                     {name: 'Jon', number: 0},
                     {name: 'Chewbaxter', number: 0}];
-var numTeams;
+  var numTeams;
+  var tempTeamSize;
+
+  $('#teamButton').on('click', function(){
+    $('.btn-numbers').hide();
+    $('#genGroup').addClass('disabled');
+    $('#genPeople').addClass('disabled');
+    $('#groupButtons').css("display", "inline-block");
+  })
+  $('#peopleButton').on('click', function(){
+    $('.btn-numbers').hide();
+    $('#peopleButtons').css("display", "inline-block");
+  })
+
+  $('#groupButtons').on('click', function(event){
+    numTeams = parseInt(event.target.value);
+    $('#genGroup').removeClass('disabled');
+  })
+
+  $('#peopleButtons').on('click', function(event){
+    tempTeamSize = parseInt(event.target.value);
+    $('#genPeople').removeClass('disabled');
+  })
+
+   $('#genPeople').on('click', function(){
+     $('.groupList').empty();
+     var tempTeamNum = parseInt(peopleArray.length/tempTeamSize);
+
+     assignTeamNum(randomizer(peopleArray), tempTeamNum);
+     // console.log(peopleArray);
+     appendToDOM(peopleArray, tempTeamNum);
+
+   })
+
+  $('#genGroup').on('click', function(){
+    $('.groupList').empty();
+    assignTeamNum(randomizer(peopleArray), numTeams);
+    //console.log(peopleArray);
+    appendToDOM(peopleArray, numTeams);
+
+  })
 
 function randomizer(array){
   var currentIndex = array.length;
@@ -48,27 +88,19 @@ function assignTeamNum(array, numTeams){
   }
 }
 
-$('.btn-group').on('click', function(event){
-  numTeams = parseInt(event.target.value);
-
-
-  $('#gen').removeClass('disabled');
-})
-
-$('#gen').on('click', function(){
-  $('.groupList').empty();
-  assignTeamNum(randomizer(peopleArray), numTeams);
-  console.log(peopleArray);
-  appendToDOM(peopleArray, numTeams);
-
-})
-
 function appendToDOM(array, num){
+  $('.groupList').hide();
   for (var i = 1; i <= num; i++) {
     $('.groupList').append('<div class="group ' + i + '"> <h2>Team ' + i + '</h2></div>');
+  }
+  if(num < 5){
+    $('h2').css("font-size", "2.5em");
+  }else if(num < 8){
+    $('h2').css("font-size", "2em");
   }
   for (var i = 0; i < array.length; i++) {
     $('.' + array[i].number).append('<li>' + array[i].name + '</li>');
   }
+  $('.groupList').fadeIn(400);
 }
 });
